@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os.path
 from pathlib import Path
+from dotenv import load_dotenv
 
 import django.middleware.locale
 
@@ -22,7 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vuoniltt@2c=i$ebb0r*wa@p5clsb&1)8(c_8st3o1^txtwu*+'
+load_dotenv()
+SECRET_KEY = os.getenv('SEKRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
